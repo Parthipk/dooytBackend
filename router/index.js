@@ -26,6 +26,8 @@ const {
     updateLeadStatus
 } = require("../controller/admin.controller")
 const { getPlans } = require("../controller/plan.controller")
+const { contactZodSchema } = require("../validator/contact.validator") 
+const { createContact } = require("../controller/contact.controller")
 
 
 
@@ -46,6 +48,9 @@ router.get('/plans', getPlans)
 router.get('/faqs', getFaqs)
 
 router.post("/request", validate(requestZodSchema), createDemo)
+
+router.post("/contact", validate(contactZodSchema), createContact)
+
 
 
 
