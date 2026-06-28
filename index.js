@@ -9,10 +9,13 @@ app.use(express.json())
 dbConnect()
 
 app.use(cors({
-  origin: "http://localhost:3000", // your frontend
+  origin: [
+    "http://localhost:5173",
+    "https://dooyt-olive.vercel.app"
+  ],
   credentials: true
-
 }));
+
 app.use('/api',router)
 app.use(morgan('dev'))
 app.listen(3001,()=>{
